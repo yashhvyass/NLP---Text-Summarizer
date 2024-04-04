@@ -1,21 +1,48 @@
-<!-- index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Summarization</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Paraphraser</title>
+    <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Text Summarization</h1>
-        <form action="/predict" method="post">
-            <label for="text">Enter text:</label><br>
-            <textarea id="text" name="text" rows="4" cols="50"></textarea><br>
-            <input type="submit" value="Summarize">
-        </form>
+    <header>
+        <button id="menuBtn">&#9776;</button> <!-- Hamburger icon button -->
+        <img src="/static/images/logo.png" alt="Logo" class="logo">
+        Paraphraser
+    </header>
+    <div id="sidebar">
+        <ul>
+            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
     </div>
+    <div class="container">
+        <div class="text-box">
+            <textarea id="inputText" placeholder="Enter or paste your text here."></textarea>
+            <!-- Add file input for uploading DOC file -->
+            <input type="file" id="fileInput" accept=".doc, .docx, .txt">
+        </div>
+        <div class="text-box">
+            <textarea id="outputText" placeholder="Paraphrased text will appear here" readonly></textarea>
+            <!-- Loading indicator -->
+            <div class="loading-indicator" id="loadingIndicator">
+                <div class="loader"></div>
+            </div>
+        </div>
+        <div class="text-box">
+            <label for="maxLengthInput">Max Length: <span id="maxLengthValue">128</span></label>
+            <input type="range" id="maxLengthInput" min="1" max="512" value="128" step="1" oninput="updateMaxLength(this.value)">
+        </div>
+        <div class="button-container">
+            <button id="paraphraseBtn">Paraphrase</button>
+            <button id="clearBtn">Clear</button> <!-- New clear button -->
+            <button id="stopBtn">Stop</button> <!-- New stop button -->
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
 </body>
 </html>

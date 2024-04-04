@@ -1,38 +1,138 @@
-/* styles.css */
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+header {
+    display: flex; /* Use flexbox */
+    align-items: center; /* Center items vertically */
+    font-size: 25px; /* Reduce font size */
+    color: rgb(7, 163, 111);
+    margin-bottom: 20px; /* Reduce margin */
+    background-color: #d4e0e5;
+    width: 100%;
+    padding: 10px; /* Add padding to header */
+    overflow: hidden; /* Hide overflow */
+}
+
+.logo {
+    width: 40px; /* Adjust logo width */
+    height: 30px; /* Maintain aspect ratio */
+    margin-left: 10px; /* Adjust margin */
+    margin-right: 10px; /* Adjust margin */
+    border-radius: 30%; /* Apply border-radius for rounded appearance */
+}
+
+#menuBtn {
+    font-size: 20px; /* Adjust the size of the hamburger icon */
+    color: #000; /* Change the color of the hamburger icon */
+    background-color: transparent; /* Make the background transparent */
+    border: none; /* Remove any border */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+
+#sidebar {
+    position: fixed;
+    top: 60px; /* Position below the header */
+    left: -100; /* Initially hidden */
+    width: 100px;
+    height: 200px; /* Half the viewport height minus header height */
+    background-color: #fff;
+    transition: left 0.3s ease-in-out; /* Smooth sliding transition */
+    z-index: 1000; /* Ensure sidebar appears on top */
+}
+
+#sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#sidebar ul li {
+    padding: 15px;
+}
+
+#sidebar ul li a {
+    color: #09a760;
+    text-decoration: none;
 }
 
 .container {
-    width: 50%;
-    margin: 0 auto;
-    text-align: center;
-    background-color: #fff;
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-template-rows: auto auto; /* Auto-sized rows */
+    gap: 20px; /* Gap between grid items */
+    width: 80%; /* Adjusted width */
+    margin: 20px auto;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgba(3, 44, 16, 0.293);
+}
+
+.text-box {
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
+    position: relative; /* Ensure position relative for absolute positioning of loading indicator */
 }
 
 textarea {
     width: 100%;
+    height: 400px; /* Increased height */
     padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
     box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
 }
 
-input[type="submit"] {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 20px;
+.button-container {
+    grid-column: 1 / -1; /* Span all columns */
+    margin-top: 10px; /* Add margin at the top */
+}
+
+#stopBtn,
+#paraphraseBtn,
+#clearBtn {
+    width: fit-content; /* Adjusted to fit content */
+    padding: 8px 15px; /* Reduced padding */
+    font-size: 14px; /* Reduced font size */
     border: none;
-    border-radius: 4px;
+    border-radius: 20px; /* Rounded corners */
+    background-color: #09a760;
+    color: #fff;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-input[type="submit"]:hover {
-    background-color: #45a049;
+#paraphraseBtn:hover,
+#clearBtn:hover {
+    background-color: #0056b3;
+}
+
+#stopBtn:hover {
+    background-color: #cf230f;
+}
+
+/* Updated loading indicator styles */
+.loading-indicator {
+    display: none; /* Hide by default */
+    position: absolute;
+    top: 50%;
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center vertically and horizontally */
+}
+
+.loader {
+    border: 10px solid #f3f3f3; /* Light grey */
+    border-top: 10px solid #09a760; /* Blue */
+    border-bottom: 10px solid #09a760; /* Blue */
+    border-radius: 30%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

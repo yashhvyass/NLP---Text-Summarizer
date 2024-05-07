@@ -19,7 +19,7 @@ app.add_middleware(
 )
 
 # Mount the 'static' directory to serve static files (CSS, JS, images, etc.)
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("../src/textSummarizer/static/", StaticFiles(directory="static"), name="static")
 
 # Define your HTML templates
 templates = Jinja2Templates(directory="templates")

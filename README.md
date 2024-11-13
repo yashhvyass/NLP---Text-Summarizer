@@ -1,4 +1,4 @@
-# NLP--- End to End Text-Summarizer
+# Textly
 
 ## Workflows
 

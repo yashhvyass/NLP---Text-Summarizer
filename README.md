@@ -1,8 +1,6 @@
 # Textly
 
 ## Workflows
-
-Textly
 Textly is an advanced text paraphrasing web application, designed as an intelligent alternative to Quillbot. Built on the Flask framework and powered by Hugging Face’s pretrained BERT model, Textly delivers high-quality paraphrasing with a BLEU score of 45. This application provides users with a range of paraphrasing styles, enhancing both flexibility and precision in text rewriting tasks. Textly is ideal for students, writers, and professionals looking for effective ways to rephrase content while maintaining the original meaning.
 
 ## Demo
